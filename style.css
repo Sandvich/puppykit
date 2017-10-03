@@ -48,6 +48,14 @@ iframe.contact {
     margin: 0 auto;
 }
 
+textarea#message {
+    font-size:12px;
+    width:100%;
+    max-width:500px;
+    padding:0;
+    margin:0
+}
+
 tr.table_header {
     font-weight: bold;
 }
