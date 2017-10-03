@@ -30,13 +30,13 @@ p.copyright {
 
 p.caption {
     font-size:10px;
-    margin:0;
+    margin:-0.25em 0 1em 0;
     text-align: center;
 }
 
 img {
 	display: block;
-	margin: 0 auto;
+	margin: 0em auto 0.5em auto;
 	max-width: 95%;
 }
 
