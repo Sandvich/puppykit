@@ -7,7 +7,7 @@ var initNavBar = function() {
 };
 
 var setup = function() {
-	$( "#nav" ).load("nav.html", initNavBar);
+	$( "#nav" ).load("/nav.html", initNavBar);
 };
 
 $( document ).ready(setup);
