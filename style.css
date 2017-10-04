@@ -95,6 +95,7 @@ h2.not-started { color:#ff3b18; }
 .navbar-wrapper {
     background-color: #BBB;
     margin-bottom: 1em;
+    height: 2.1em;
     -webkit-font-smoothing: antialiased;
     -webkit-transition: height 0.5s;
     -moz-transition: height 0.5s;
@@ -104,6 +105,7 @@ h2.not-started { color:#ff3b18; }
 
 .navbar-wrapper.open {
     height: auto;
+    overflow: visible;
 }
 
 .navbar-menu-3 {
@@ -209,6 +211,7 @@ h2.not-started { color:#ff3b18; }
     .pure-menu-allow-hover:hover > .pure-menu-children {
         position: relative;
     }
+    .navbar-wrapper { overflow: hidden; }
 }
 
 .pure-menu-link, .pure-menu-heading { color: #111; background-color: #BBB }
