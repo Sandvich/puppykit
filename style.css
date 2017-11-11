@@ -90,7 +90,7 @@ table td {
 .near-completion { color:#b1e425; }
 .in-progress { color:#eceb13; }
 .early { color:#eda537; }
-.not-started { color:#ff3b18; }
+.not-started .abandoned { color:#ff3b18; }
 
 .navbar-wrapper {
     background-color: #BBB;
