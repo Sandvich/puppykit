@@ -13,7 +13,7 @@ div.main {
 	opacity: 0.9;
 }
 
-div.center { text-align: center; }
+div.center, p.center { text-align: center; }
 
 h1 { margin-top: 0px; }
 h2 { margin: 1.5em 0em 0em 0em; font-size: 1.17em; }
@@ -78,7 +78,7 @@ table td {
 	-moz-border-radius: ;
 }
 
-h2.status {
+.status {
     width: 90%;
     max-width: 600px;
     background-color: #404040;
@@ -86,11 +86,11 @@ h2.status {
     padding: 1em;
     border-radius: 0.5em;
 }
-h2.complete { color:#25e425; }
-h2.near-completion { color:#b1e425; }
-h2.in-progress { color:#eceb13; }
-h2.early { color:#eda537; }
-h2.not-started { color:#ff3b18; }
+.complete { color:#25e425; }
+.near-completion { color:#b1e425; }
+.in-progress { color:#eceb13; }
+.early { color:#eda537; }
+.not-started { color:#ff3b18; }
 
 .navbar-wrapper {
     background-color: #BBB;
