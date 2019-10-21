@@ -25,6 +25,11 @@ In future I'll use it to place a custom banner on each page via the javascript.-
     but mostly for me in case I want to do it again!
 </p>
 
+<p>
+    Please note that the content on this site is licensed under
+    <img src="/img/creative_commons_notice.png" alt="CC BY-SA-NC 4.0" />
+</p>
+
 <h2>Me</h2>
 <p>
     My name is Sanchit Sharma, sometimes also referred to as:
@@ -40,14 +45,23 @@ In future I'll use it to place a custom banner on each page via the javascript.-
     personal page</a> for more info.
 </p>
 
+<h2>Update!</h2>
+<p>
+    If you've been following me for a while, you may have noticed that my site has been down for a while. Now that it's
+    back up, I've updated large amounts of the content, including this page. I have removed the stale information, but
+    if you still want to see it you can always take a look at old commits on
+    <a href="https://github.com/Sandvich/puppykit">github</a>.
+</p>
+
 <h2>The Site</h2>
 <p>
-    This website is running off a microserver sitting next to my desk. I've done everything from scratch - from hosting
-    to the domain to writing the code myself, by hand. Mostly this has been a learning exercise - I'm not sure I would
-    do things the same way in the future - but I do enjoy the idea that I'm able to host things from my own home!
+    This website is running off a microserver that lives in my sister's house. I've done everything from scratch - from
+    hosting to the domain to writing the code myself, by hand. This started out as a learning exercise, but I quite
+    enjoy hosting the site myself. So long as traffic remains low, I see little to no reason to move to a cloud
+    provider.
 </p>
 <p>
-    So how does it work? The code is hosted <a href="https://github.com/Sandvich/puppykit">on github</a> so feel free
+    So how does it work? The code is hosted on <a href="https://github.com/Sandvich/puppykit">github</a> so feel free
     to browse at your leisure. The code is licensed under the Apache-2.0 license, so copy, reuse, mess around with
     whatever you feel like. If you have suggestions, feel free to open pull requests or issues.
 </p>
@@ -55,54 +69,37 @@ In future I'll use it to place a custom banner on each page via the javascript.-
 <h2>The Server</h2>
 <p>
     I own a <a href="https://www.hpe.com/uk/en/product-catalog/servers/proliant-servers/pip.hpe-proliant-microserver-gen8.5379860.html">
-    HPE ProLiant MicroServer Gen8</a> which currently lives next to my desk. Aside from being a small and low-powered
-    device, it's easily quiet enough to sit in my bedroom, which is a massive plus. Inside is currently a single 2TB
-    spinning-platter drive, though I plan to increase that to a second for RAID and then potentially two more for
-    increased storage.
+    HPE ProLiant MicroServer Gen8</a>. Aside from being a small and low-powered device, it's very quiet. Inside is
+    currently a single 1TB spinning-platter drive - unfortunately the previous 2TB drive died. I plan to increase that,
+    eventually, to four 4TB drives, as I plan to eventually use this as mass network storage in addition to the current
+    role of webserver.
 </p>
 <p>
-    The server itself is running Fedora Server 25, and I run updates daily with an ansible playbook that manages all of
-    my hardware. Whenever a new kernel is pushed to the repositories, I immediately install it and reboot into the new
-    kernel.
+    The server itself is running Ubuntu Server 18.04. The reason for this was initially because of difficulties with
+    installing Charmed Kubernetes, but I eventually chose to leave it as-is whilst removing Charmed (see below).
 </p>
 <p>
     Since this site is currently running on the single server (no HA yet!), this results in relatively high downtime.
-    For me, this is a satisfactory tradeoff as the site has little traffic at the moment. However, I've also covered
-    the details of how to install and run Openshift in HA mode - multiple masters, multiple nodes, and multiple etcd
-    nodes.
-</p>
-<p>
-    The OS has the minimum installed: Openshift, Ansible and a few other utilities aside from the basic install of
-    Fedora Server.
+    For me, this is a satisfactory tradeoff as the site has little traffic at the moment. I am pretty comfortable
+    working on HA systems, but this doesn't seem worthwhile for my personal site, at least not at this stage.
 </p>
 
-<h2>Openshift</h2>
+<h2>Software</h2>
 <p>
-    All my code runs in Openshift. This means everything hosted on this server. I do this for security and also a
-    little bit for convenience. My main project (which contains this site) has a route set up inside of Openshift that
-    forwards traffic to the primary container.
+    Although previously I was running my code in Openshift, I have instead decided to lean more heavily on the lower
+    level tools for this iteration. Currently all of the content on this site is hosted via Docker containers, and these
+    are routed by nginx.
 </p>
 <p>
-    That container is a simple Docker container based on the <a href="https://hub.docker.com/_/httpd/">HTTPD image</a>
-    with my website and a slightly edited conf file inside (see
-    <a href="https://github.com/Sandvich/puppykit/blob/master/Dockerfile">the Dockerfile</a>).
-</p>
-<img src="/img/server.jpg" alt="Server + Openshift">
-<p class="caption">My server on the left, the Openshift web client on the right.</p>
-
-<p>
-    Technically, Openshift is overkill for what I'm trying to do here. However, I've taken this on as a learning
-    exercise and I expect that Openshift will be useful for some of the things that I want to host here in the future,
-    so I've stuck with it.
+    The container running this site is a simple Docker container based on the
+    <a href="https://hub.docker.com/_/nginx">NGINX image</a> with my website and a custom config file inside (see the
+    <a href="https://github.com/Sandvich/puppykit/blob/master/Dockerfile">Dockerfile</a>).
 </p>
 <p>
-    To make my life a bit simpler, the hosts file on my dev machine allows me to directly access my server, so I can
-    see how things differ when accessing it internally vs from the outside world.
-</p>
-<p>
-    Since I don't want to allow ports other than 80 and 443 through my router, I haven't set up build hooks. This means
-    that I have to manually build the site container when I update it, but I think this is a fair compromise as once
-    the site is fully built it won't be updated more than once every month or so.
+    In a previous version of this site I said that Openshift is overkill for what I'm doing here. This is largely the
+    reason that I've switched to using just plain docker - now that I'm comfortable with openshift my main motivator
+    is minimising energy consumption on this machine. Since security is still strong with docker, it seems like a
+    sensible shift.
 </p>
 
 <h2>Gandi</h2>
@@ -110,12 +107,12 @@ In future I'll use it to place a custom banner on each page via the javascript.-
     My registrar is <a href="www.gandi.net">Gandi</a>, although it annoys me that they spelled Gandhi wrong :p
 </p>
 <p>
-    They've been pretty easy to work with and have a good corporate philosophy in my opinion. Although my mail is not
-    currently running, I plan to use their services for it as I'm not interested in setting up a mail server from
-    scratch just yet.
+    They've been pretty easy to work with and have a good corporate philosophy in my opinion. I use their mail server as
+    I'm not interested in setting up a mail server from scratch just yet.
 </p>
 </div>
 
-<p class="copyright">Content &#9400; Sanchit Sharma 2017, code licensed under Apache-2.0</p>
+<p class="copyright">Content &#9400; Sanchit Sharma 2019 and released under CC BY-SA-NC 4.0, code licensed under
+    Apache-2.0</p>
 </body>
 </html>
