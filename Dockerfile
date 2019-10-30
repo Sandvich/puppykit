@@ -1,7 +1,7 @@
 FROM nginx:mainline-alpine
 
 COPY . /code
-RUN ln -s /code/puppykit.conf /etc/nginx/conf.d/puppykit.conf && \
+RUN ln -s /code/system/puppykit.conf /etc/nginx/conf.d/puppykit.conf && \
     rm /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

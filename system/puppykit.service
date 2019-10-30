@@ -1,0 +1,13 @@
+[Unit]
+Description="Container for puppykit.org.uk"
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStart=/usr/bin/docker start puppykit
+ExecStop=/usr/bin/docker stop puppykit
+
+[Install]
+WantedBy=multi-user.target
