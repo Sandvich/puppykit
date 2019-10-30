@@ -15,9 +15,9 @@ systemctl daemon-reload
 
 # Stop and delete the old version of the site container
 systemctl stop docker.puppykit
-docker stop puppykit
 docker rm puppykit
 
 # Build the new container and launch it
 docker build -t puppykit .
-docker run -p 8080:80 --name puppykit -d puppykit
+systemctl start docker.puppykit
+
