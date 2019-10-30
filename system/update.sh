@@ -11,6 +11,7 @@ test -f /etc/nginx/sites-enabled/puppykit.org.uk || ln -s /etc/nginx/sites-avail
 
 # Sync our systemd service
 cp system/puppykit.service /etc/systemd/system/docker.puppykit.service
+systemctl daemon-reload
 
 # Stop and delete the old version of the site container
 systemctl stop docker.puppykit
