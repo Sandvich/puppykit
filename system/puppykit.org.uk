@@ -3,20 +3,35 @@ server {
 	listen [::]:443 ssl;
 	server_name puppykit.org.uk www.puppykit.org.uk;
 
-        location ~ /(.git*|system/*|Dockerfile) {
-            deny all;
-            return 404;
-        }
-        location / {
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_pass http://localhost:8080;
-        }
+    location ~ /(.git*|system/*|Dockerfile) {
+        deny all;
+        return 404;
+    }
+    location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://localhost:8080;
+    }
 
-        ssl_certificate /etc/letsencrypt/live/puppykit.org.uk/fullchain.pem; # managed by Certbot
-        ssl_certificate_key /etc/letsencrypt/live/puppykit.org.uk/privkey.pem; # managed by Certbot
-        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/puppykit.org.uk/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/puppykit.org.uk/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+    # A lot of this was taken from https://medium.com/@aditya.vssut/setting-up-nginx-configuration-to-get-an-a-in-ssl-labs-server-test-e0e25098d634
+    # SSL setup
+    ssl_protocols TLSv1.2;
+    ssl_ciphers 'kEECDH+ECDSA+AES128 kEECDH+ECDSA+AES256 kEECDH+AES128 kEECDH+AES256 kEDH+AES128 kEDH+AES256 DES-CBC3-SHA +SHA !aNULL !eNULL !LOW !kECDH !DSS !MD5 !RC4 !EXP !PSK !SRP !CAMELLIA !SEED';
+    ssl_prefer_server_ciphers on;ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 10m;
+    # HSTS
+    add_header Strict-Transport-Security "max-age=5184000; preload" always;
+    # OCSP stapling
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    ssl_trusted_certificate /etc/ssl/certs/ca-certificates.crt;
+    resolver 208.67.222.222 208.67.220.220 valid=300s; # OpenDNS
+    resolver_timeout 10s;
 }
 
 server {
