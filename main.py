@@ -1,10 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 
 app = Flask(__name__)
 
 @app.route("/")
 def root():
-    return render_template('index.html', title="Main", highlight="index")
+    return render_template('root.html', title="Main", highlight="index")
+
+@app.route("/<string:path>/")
+def main_paths(path):
+    if path in ['contact', 'personal', 'professional', 'projects', 'writing']:
+        return render_template("%s.html" % path, title=path.capitalize(), highlight=path)
+    else:
+        abort(404)
 
 '''
     Let's spend some time thinking about structure.

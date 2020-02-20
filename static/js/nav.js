@@ -12,8 +12,4 @@ var initNavBar = function() {
 	$('#toggle').click(toggleMenu);
 };
 
-var setup = function() {
-	$( "#nav" ).load("/nav.html", initNavBar);
-};
-
-$( document ).ready(setup);
+$( document ).ready(initNavBar);
