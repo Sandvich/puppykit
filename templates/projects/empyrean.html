@@ -17,7 +17,7 @@
     To combat this problem, I decided to employ a fairly basic solution - I copied up all of the traits into a
     spreadsheet which I could then use to look up traits more easily. In order to get this working with the UI remaining
     consistent, I had to make use of macros - obviously a far from perfect solution. Still, this did work. If you're
-    interested, you can download the (no longer maintained) spreadsheet <a href="/files/empyrean.ods">here</a> - note:
+    interested, you can download the (no longer maintained) spreadsheet <a href="{{ url_for('static', filename='files/empyrean.ods') }}">here</a> - note:
     it will not work properly in Microsoft Excel, but will work in all spreadsheet applications which support the ODS
     standard.
 </p>
@@ -27,7 +27,7 @@
     program, but one that would need to be run on a developers' machine in pretty much all situations... This version is
     no longer in development, but is the latest version of the project. You can get it <a href="https://github.com/Sandvich/MysticEmpyrean">here</a>.
 </p>
-<img src="/img/empyrean_app.png" alt="A screenshot of the python application">
+<img src="{{ url_for('static', filename='/img/empyrean_app.png') }}" alt="A screenshot of the python application">
 
 <h2>Goals</h2>
 <p>

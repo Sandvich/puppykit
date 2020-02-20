@@ -9,7 +9,7 @@
 
 <h2 class="status complete">Status: Complete</h2>
 
-<h2><img src="/img/mfd_game.gif" alt="The Game" style="margin-left:0em;" class="animated"></h2>
+<h2><img src="{{ url_for('static', filename='img/mfd_game.gif') }}" alt="The Game" style="margin-left:0em;" class="animated"></h2>
 <p>
     Marked for Death is a (moderately comedic) FATE module about assassins and their contracts. Featuring:
 </p>
@@ -24,14 +24,14 @@
     Want to take down your target with magic? Long distance with a bow? Up close and personal? It's your choice!
 </p>
 
-<h2><img src="/img/mfd_rules.gif" alt="The Rules" style="margin-left:0em;" class="animated"></h2>
+<h2><img src="{{ url_for('static', filename='img/mfd_rules.gif') }}"" alt="The Rules" style="margin-left:0em;" class="animated"></h2>
 <p>
     The game expands upon the Fate core rules, aiming to make the game more difficult than Fate as-written. The system
     penalises players for trying to take all the spotlight for themselves, encouraging them to work as a team, and the
     consequences for not doing so are often deadly!<br>
     Of course, deadly consequences can also ensue if they do... But those are the ones the players are hoping for!
 </p>
-<img src="/img/mfd_police.png" alt="Here come the police!">
+<img src="{{ url_for('static', filename='img/mfd_police.png') }}" alt="Here come the police!">
 <p>
     There are also three GM aids in the book to help co-ordinate games:
 </p>
@@ -45,7 +45,7 @@
     online, as it has been enough time since the Kickstarter to give the backers that paid for it their value. If you
     like, you can download the campaign below to give you a five-session introduction to the system and what it can do.
 </p>
-<img src="/img/mfd_zhu.png" alt="Zhu, a major NPC">
+<img src="{{ url_for('static', filename='img/mfd_zhu.png') }}" alt="Zhu, a major NPC">
 <p class="caption">Zhu is one of the major antagonists in the campaign I wrote - you can probably see why!</p>
 
 <h2>Where to Buy</h2>
@@ -58,9 +58,9 @@
 
 <h2>Downloads</h2>
 <ul>
-    <li><a href="/img/mfd_sheet.png">Character Sheet (PNG)</a></li>
-    <li><a href="/files/CharSheet.pdf">Character Sheet (Form-Fill PDF)</a></li>
-    <li><a href="/files/Campaign.pdf">Campaign (PDF)</a></li>
+    <li><a href="{{ url_for('static', filename='img/mfd_sheet.png') }}">Character Sheet (PNG)</a></li>
+    <li><a href="{{ url_for('static', filename='files/CharSheet.pdf') }}">Character Sheet (Form-Fill PDF)</a></li>
+    <li><a href="{{ url_for('static', filename='files/Campaign.pdf') }}">Campaign (PDF)</a></li>
 </ul>
 
 <h2>Thanks</h2>
@@ -82,7 +82,8 @@
         Ted Swalwell, David Terhune, Tytnt, Duncan Usher-McGee, Zeb Walker, Timothy J. Watkins, SE Weaver, wraith808</dd>
 </dl>
 
-<img style="margin-right:1em;margin-bottom:1em;" src="/img/powered_by_fate.png" alt="Powered by Fate">
+<img style="margin-right:1em;margin-bottom:1em;" src="{{ url_for('static', filename='img/powered_by_fate.png') }}" alt="Powered by Fate">
 <p class="copyright">Fate&trade; is a trademark of Evil Hat Productions, LLC. The Powered by Fate logo is &#9400; Evil
 Hat Productions, LLC and is used with permission.</p>
+<script type="text/javascript" src="{{ url_for('static', filename='js/gif_to_text.js') }}"></script>
 {% endblock %}
