@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<title>Puppykit - Personal - RPGs</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="/pure-min.css">
-<link rel="stylesheet" type="text/css" href="/style.css">
-</head>
-
-<body>
-<script src="/jquery.js">Please turn on javascript, or navigate to <a href="/nav.html">this page</a> to navigate the site.</script>
-<script src="/nav.js"></script>
-<a id="page">personal</a>
-<nav id="nav"></nav>
-
-<div class="main"><!--Content goes here!-->
+{% extends 'core.html' %}
+{% block content %}
 <h1>RPGs</h1>
 <p>
     Because I'm strange, I made a list of every tabletop RPG I own. They are presented below, along with some thoughts
@@ -267,10 +251,4 @@
     <tr><td>Witch: The Road to Lindisfarne</td>                         <td>Print</td>  <td></td></tr>
     <tr><td>World of Darkness</td>                                      <td>PDF</td>    <td></td></tr>
 </table>
-
-</div>
-
-<p class="copyright">Content &#9400; Sanchit Sharma 2019 and released under CC BY-SA-NC 4.0, code licensed under
-    Apache-2.0</p>
-</body>
-</html>
+{% endblock %}

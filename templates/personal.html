@@ -17,7 +17,7 @@
 <p>
     A bunch of these things will, of course, spill over onto other pages, but an introduction is below.
 </p>
-<img src="/img/me.jpg" alt="Sanchit!">
+<img src="{{ url_for('static', filename='img/me.jpg') }}" alt="Sanchit!">
 <p class="caption">Me!</p>
 
 <h2 id="gender">Gender</h2>
@@ -26,7 +26,7 @@
     time, and I never identify fully as either male or female. I strongly prefer that people use gender-neutral
     pronouns when referring to me.
 </p>
-<img src="/img/genderfluid.png" alt="Gender graph">
+<img src="{{ url_for('static', filename='img/genderfluid.png') }}" alt="Gender graph">
 <p class="caption">The sine wave represents how male I am. 100% is fully male, and 0% is fully female. Of course, in
 reality it isn't so simple, but this is a good approximation most of the time.</p>
 <p>

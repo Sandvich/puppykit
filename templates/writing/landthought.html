@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<title>Puppykit - Writing - Land of Thought</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="/pure-min.css">
-<link rel="stylesheet" type="text/css" href="/style.css">
-</head>
-
-<body>
-<script src="/jquery.js">Please turn on javascript, or navigate to <a href="nav.html">this page</a> to navigate the site.</script>
-<script src="/nav.js"></script>
-<a id="page">writing</a>
-<nav id="nav"></nav>
-
-<div class="main"><!--Content goes here!-->
+{% extends 'core.html' %}
+{% block content %}
 <h1>Land of Thought</h1>
 <p><em>This story is set in the world of Kino's Journey. Kino is a young girl of around 13 or 14, but her style of dress
     and hair make her appear quite androgynous. She explores the world on her talking motorbike, Hermes, staying for
@@ -421,9 +405,4 @@
 <a name="3">3. Motorbikes are called motorrads in this universe. I don't know why.</a><a href="#3text">Back to text.</a><br>
 <a name="4">4. This is referring to episode 5 of the anime, <em>Three Men Along the Rails -On the Rails-</em></a>
 <a href="#4text">Back to text.</a></p>
-</div>
-
-<p class="copyright">Content &#9400; Sanchit Sharma 2019 and released under CC BY-SA-NC 4.0, code licensed under
-    Apache-2.0</p>
-</body>
-</html>
+{% endblock %}
