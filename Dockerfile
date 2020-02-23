@@ -1,8 +1,3 @@
-FROM nginx:mainline-alpine
+FROM tiangolo/meinheld-gunicorn-flask:python3.7-alpine3.8
 
-COPY . /code
-RUN ln -s /code/system/puppykit.conf /etc/nginx/conf.d/puppykit.conf && \
-    rm /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY . /app

@@ -1,0 +1,95 @@
+{% extends 'core.html' %}
+{% block content %}
+<h1>Welcome!</h1>
+<p>
+    This is a (mostly static) website intended to collect my thoughts and much of my life into one place. This page
+    will serve as a quick introduction to the website and details on how I put it together - partially for other people
+    but mostly for me in case I want to do it again!
+</p>
+
+<p>
+    Please note that the content on this site is licensed under
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-SA-NC 4.0</a>.
+</p>
+
+<h2>Me</h2>
+<p>
+    My name is Sanchit Sharma, sometimes also referred to as:
+</p>
+<ul>
+    <li>San
+    <li>Sam
+    <li>TTIO or TTIOttio (each letter pronounced separately)
+    <li>PuppyKit (hence the url)
+</ul>
+<p>
+    I'm a software developer, devops person and all-round nerdy person. Head on over to my <a href="/personal.html">
+    personal page</a> for more info.
+</p>
+
+<h2>Update!</h2>
+<p>
+    If you've been following me for a while, you may have noticed that my site has been down for a while. Now that it's
+    back up, I've updated large amounts of the content, including this page. I have removed the stale information, but
+    if you still want to see it you can always take a look at old commits on
+    <a href="https://github.com/Sandvich/puppykit">github</a>.
+</p>
+
+<h2>The Site</h2>
+<p>
+    This website is running off a microserver that lives in my sister's house. I've done everything from scratch - from
+    hosting to the domain to writing the code myself, by hand. This started out as a learning exercise, but I quite
+    enjoy hosting the site myself. So long as traffic remains low, I see little to no reason to move to a cloud
+    provider.
+</p>
+<p>
+    So how does it work? The code is hosted on <a href="https://github.com/Sandvich/puppykit">github</a> so feel free
+    to browse at your leisure. The code is licensed under the Apache-2.0 license, so copy, reuse, mess around with
+    whatever you feel like. If you have suggestions, feel free to open pull requests or issues.
+</p>
+
+<h2>The Server</h2>
+<p>
+    I own a <a href="https://www.hpe.com/uk/en/product-catalog/servers/proliant-servers/pip.hpe-proliant-microserver-gen8.5379860.html">
+    HPE ProLiant MicroServer Gen8</a>. Aside from being a small and low-powered device, it's very quiet. Inside is
+    currently a single 1TB spinning-platter drive - unfortunately the previous 2TB drive died. I plan to increase that,
+    eventually, to four 4TB drives, as I plan to eventually use this as mass network storage in addition to the current
+    role of webserver.
+</p>
+<p>
+    The server itself is running Ubuntu Server 18.04. The reason for this was initially because of difficulties with
+    installing Charmed Kubernetes, but I eventually chose to leave it as-is whilst removing Charmed (see below).
+</p>
+<p>
+    Since this site is currently running on the single server (no HA yet!), this results in relatively high downtime.
+    For me, this is a satisfactory tradeoff as the site has little traffic at the moment. I am pretty comfortable
+    working on HA systems, but this doesn't seem worthwhile for my personal site, at least not at this stage.
+</p>
+
+<h2>Software</h2>
+<p>
+    Although previously I was running my code in Openshift, I have instead decided to lean more heavily on the lower
+    level tools for this iteration. Currently all of the content on this site is hosted via Docker containers, and these
+    are routed by nginx.
+</p>
+<p>
+    The container running this site is a simple Docker container based on the
+    <a href="https://hub.docker.com/_/nginx">NGINX image</a> with my website and a custom config file inside (see the
+    <a href="https://github.com/Sandvich/puppykit/blob/master/Dockerfile">Dockerfile</a>).
+</p>
+<p>
+    In a previous version of this site I said that Openshift is overkill for what I'm doing here. This is largely the
+    reason that I've switched to using just plain docker - now that I'm comfortable with openshift my main motivator
+    is minimising energy consumption on this machine. Since security is still strong with docker, it seems like a
+    sensible shift.
+</p>
+
+<h2>Gandi</h2>
+<p>
+    My registrar is <a href="www.gandi.net">Gandi</a>, although it annoys me that they spelled Gandhi wrong :p
+</p>
+<p>
+    They've been pretty easy to work with and have a good corporate philosophy in my opinion. I use their mail server as
+    I'm not interested in setting up a mail server from scratch just yet.
+</p>
+{% endblock %}
