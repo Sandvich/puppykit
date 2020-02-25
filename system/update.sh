@@ -19,7 +19,7 @@ docker rm puppykit
 
 # Build the new container and launch it
 docker build -t puppykit .
-docker run -p 80:80 --name puppykit -d -e WORKERS_PER_CORE="1" puppykit
+docker run -p 80:80 --name puppykit -d -e WEB_CONCURRENCY="2" puppykit
 docker stop puppykit
 systemctl start docker.puppykit
 

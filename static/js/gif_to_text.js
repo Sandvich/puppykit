@@ -1,11 +1,12 @@
 var callback = function() {
-    $('.animated').each( function() {
-        $(this).parent().html($(this).attr('alt'));
-    });
+    for (let animatedItem of document.querySelectorAll(".animated")) {
+        animatedItem.parentElement.innerHTML = animatedItem.getAttribute("alt");
+    }
 };
 
-var add_click = function() {
-    $('.animated').click(callback);
-};
-
-$( document ).ready(add_click);
+document.addEventListener("DOMContentLoaded", function() {
+    for (let animatedItem of document.querySelectorAll(".animated")) {
+        animatedItem.addEventListener("click", callback);
+        animatedItem.addEventListener("touched", callback);
+    }
+});
