@@ -1,6 +1,9 @@
-var toggleMenu = function () {
-    $('#menu').toggleClass('open');
-    $('#toggle').toggleClass('x');
-};
+var toggleMenu = function() {
+    document.querySelector("#menu").classList.toggle("open");
+    document.querySelector("#toggle").classList.toggle("x");
+}
 
-$( document ).ready($('#toggle').click(toggleMenu));
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("#toggle").addEventListener("click", toggleMenu);
+    document.querySelector("#toggle").addEventListener("touched", toggleMenu);
+});
