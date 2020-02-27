@@ -4,13 +4,12 @@ body {
 }
 
 div.main {
-	max-width: 90%;
-	margin: 20px 5%;
+	max-width: 1200px;
+	margin: 20px auto;
 	padding: 1.5em 1.5em 0.5em 1.5em;
 	display: block;
-	background-color: #BBB;
+	background-color: #fff;
 	border-radius: 1em;
-	opacity: 0.9;
 }
 
 div.center, p.center { text-align: center; }
@@ -75,7 +74,6 @@ table td {
 	padding: 5px;
 	border-style: solid;
 	border-color: black;
-	-moz-border-radius: ;
 }
 
 .status {
@@ -156,7 +154,26 @@ table td {
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
-
+.card-container {
+    text-align: justify;
+}
+.card {
+    border: 1px solid #555;
+    display: inline-block;
+    margin-bottom: 15px;
+    max-width: 552px;
+    padding: 15px 0;
+    vertical-align: top;
+}
+.card > h3 {
+    text-align: center;
+    margin: 0 0 15px;
+}
+.card > p {
+    margin: 10px 0 0;
+    padding: 0 15px;
+    text-align: center;
+}
 @media (min-width: 47.999em) {
     .pure-menu-children, .pure-menu-children>.pure-menu-item {
         border: solid black 1px;
@@ -212,6 +229,22 @@ table td {
         position: relative;
     }
     .navbar-wrapper { overflow: hidden; }
+}
+/* Adding media queries for div.main so that's it wide enough */
+@media (min-width: 1600px) {
+    div.main {
+        max-width: 1200px;
+    }
+}
+@media (min-width: 1920px) {
+    div.main {
+        max-width: 1600px;
+    }
+}
+@media (min-width: 2160px) {
+    div.main {
+        max-width: 1920px;
+    }
 }
 
 .pure-menu-link, .pure-menu-heading { color: #111; background-color: #BBB }
