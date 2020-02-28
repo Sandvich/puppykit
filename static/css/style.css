@@ -8,7 +8,7 @@ div.main {
 	margin: 20px auto;
 	padding: 1.5em 1.5em 0.5em 1.5em;
 	display: block;
-	background-color: #fff;
+	background-color: #ddd;
 	border-radius: 1em;
 }
 
@@ -147,23 +147,25 @@ table td {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-
 .navbar-toggle.x .bar:first-child {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
+
 .card-container {
-    text-align: justify;
+    display: flex;
+    flex-wrap: wrap;
 }
 .card {
-    border: 1px solid #555;
-    display: inline-block;
-    margin-bottom: 15px;
-    max-width: 552px;
+    border: 1px solid#555;
     padding: 15px 0;
-    vertical-align: top;
+    margin: 15px auto;
+    max-width: 552px;
+}
+.card iframe {
+    max-width: 100%;
 }
 .card > h3 {
     text-align: center;
@@ -172,8 +174,8 @@ table td {
 .card > p {
     margin: 10px 0 0;
     padding: 0 15px;
-    text-align: center;
 }
+
 @media (min-width: 47.999em) {
     .pure-menu-children, .pure-menu-children>.pure-menu-item {
         border: solid black 1px;
