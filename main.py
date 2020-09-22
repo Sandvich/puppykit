@@ -26,7 +26,7 @@ def personal_paths(path):
 @app.route("/projects/<string:path>/")
 def project_paths(path):
     # Everything under projects
-    if path in ['accalia', 'elcm', 'empyrean', 'packmates']:
+    if path in ['window', 'elcm', 'empyrean', 'packmates']:
         return render_template("projects/%s.html" % path, title="Projects - %s" % path.capitalize(), highlight='projects')
     elif path == "marked_for_death":
         return render_template("projects/marked_for_death.html", title="Projects - Marked for Death", highlight='projects')
