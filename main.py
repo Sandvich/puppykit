@@ -23,6 +23,10 @@ def personal_paths(path):
     else:
         abort(404)
 
+@app.route("/personal/rpgs/<string:query>")
+def rpg_pages(query):
+    pass
+
 @app.route("/projects/<string:path>/")
 def project_paths(path):
     # Everything under projects
