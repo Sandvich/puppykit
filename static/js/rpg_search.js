@@ -6,8 +6,10 @@ var search = function() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector("#search_button").addEventListener("keypress", event => {
-        if(event.key !== "Enter") { event.preventDefault() };
-        document.querySelector("#search_button").click();
+    document.querySelector("#search_term").addEventListener("keypress", event => {
+        if(event.key == "Enter") {
+            search();
+            event.preventDefault();
+        }
     })
 });

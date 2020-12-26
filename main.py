@@ -53,7 +53,7 @@ def rpg_pages(search_type, query):
         rows = cursor.fetchall()
     
     if len(rows) == 0:
-        abort(404)
+        return render_template('personal/rpg_error.html', title="RPGs - 404", highlight='personal'), 404
     else:
         return render_template('personal/rpg_results.html', data=rows, title="RPGs - Search Results", highlight='personal')
 
