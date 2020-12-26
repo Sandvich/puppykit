@@ -8,18 +8,21 @@ def fill_db(connection):
         data = json.loads(f.read())
     
     cursor = connection.cursor()
-    cursor.executemany('INSERT INTO rpgs VALUES (?, ?, ?, ?, ?)', data)
+    for i, row in enumerate(data):
+        if len(row) == 5:
+            data[i].append(0)
+    cursor.executemany('INSERT INTO rpgs VALUES (?, ?, ?, ?, ?, ?)', data)
     connection.commit()
 
 def create_table(connection):
     cursor = connection.cursor()
     cursor.execute('''CREATE TABLE rpgs
-                (name text, format text, publisher_id text, notes text, system text);''')
+                (name text, format text, publisher_id text, notes text, system text, to_gm integer);''')
     connection.commit()
 
 def delete_db():
     # Simply checks if the db already exists and deletes it if so.
-    # Intended for dev only.
+    # Intended primarily for dev.
     if os.path.exists('rpgs.db'):
         os.remove('rpgs.db')
 
