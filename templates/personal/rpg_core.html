@@ -1,0 +1,18 @@
+{% extends 'core.html' %}
+{% block content %}
+<h1>RPGs</h1>
+{% block rpg_content %}{% endblock %}
+<h2>Find a Game</h2>
+<form class="pure-form">
+    <fieldset>
+        <input class="pure-input-rounded pure-input-2-3" type="text" placeholder="..." id="search_term" required="">
+        <select id="type">
+            <option value="name">Name</option>
+            <option value="publisher_id">Publisher ID</option>
+            <option value="system">System</option>
+        </select>
+        <input id="search_button" type="button" value="search" class="pure-button pure-button-primary" onclick="search()">
+    </fieldset>
+</form>
+<script type="text/javascript" src="{{ url_for('static', filename='js/rpg_search.js') }}"></script>
+{% endblock %}

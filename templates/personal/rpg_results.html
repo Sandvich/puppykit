@@ -1,0 +1,15 @@
+{% extends 'personal/rpg_core.html' %}
+{% block rpg_content %}
+<table class="pure_table_bordered rpgs">
+    <tr class="table_header"><td>Name</td><td>Format</td><td>Publisher Reference</td><td>Notes</td><td>System</td></tr>
+    {% for row in data %}
+    <tr>
+        <td>{{ row[0]|safe }}</td>
+        <td>{{ row[1]|safe }}</td>
+        <td>{{ row[2]|safe }}</td>
+        <td>{{ row[3]|safe }}</td>
+        <td>{{ row[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
