@@ -48,7 +48,7 @@ def rpg_pages(search_type, query):
 
     with sqlite3.connect('rpgs.db') as connection:
         cursor = connection.cursor()
-        cursor.execute(f"SELECT * FROM rpgs WHERE {search_type} MATCH ?", (f'%{query.translate(translator)}%',))
+        cursor.execute(f"SELECT * FROM rpgs WHERE {search_type} LIKE ?", (f'%{query.translate(translator)}%',))
         rows = cursor.fetchall()
     
     if len(rows) == 0:
