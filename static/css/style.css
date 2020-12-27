@@ -61,6 +61,17 @@ tr.table_header {
     font-weight: bold;
 }
 
+table.rpgs td.notes {
+    width:50%;
+}
+
+table.rpgs {
+    table-layout: fixed;
+}
+table.rpgs td {
+    width: 15%;
+}
+
 table {
     display: block;
 	border-width: 2px;
