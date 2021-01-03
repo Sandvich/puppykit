@@ -12,11 +12,11 @@ Feel free to open issues or pull requests (request against the `corrections` bra
 
 ## Running Locally
 
-Running this website on your local system is easy if you have python 3.8.x installed, and ideally pipenv. Simply run:
+Running this website on your local system is easy if you have python 3.7.x or greater installed, as well as poetry. Simply run:
 
 ```bash
-pipenv install
-pipenv run python main.py
+poetry install
+poetry run python main.py
 ```
 
 Then you can go to `localhost:5000` to see the website in action. Note: since the certs are done on my server, you'll be running in regular http, not https.

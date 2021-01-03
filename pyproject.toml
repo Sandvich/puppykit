@@ -1,0 +1,14 @@
+[tool]
+[tool.poetry]
+name = "puppykit"
+version = "0.0.0"
+description = "A flask project for running my personal website."
+authors = ["Sanchit Sharma <puppykit@puppykit.org.uk>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+flask = "*"
+
+[tool.poetry.dev-dependencies]
+pylint = "*"
