@@ -28,7 +28,7 @@ def personal_paths(path):
 def all_rpgs():
     with sqlite3.connect('rpgs.db') as connection:
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM rpgs")
+        cursor.execute("SELECT * FROM rpgs ORDER BY system, name")
         rows = cursor.fetchall()
     return render_template('personal/rpg_results.html', data=rows, title="RPGs - All", highlight='personal')
 
@@ -36,7 +36,7 @@ def all_rpgs():
 def rpgs_to_run():
     with sqlite3.connect('rpgs.db') as connection:
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM rpgs WHERE to_gm=1")
+        cursor.execute("SELECT * FROM rpgs WHERE to_gm=1 ORDER BY system, name")
         rows = cursor.fetchall()
     return render_template('personal/rpg_results.html', data=rows, title="RPGs - To Run", highlight='personal')
 
@@ -48,7 +48,8 @@ def rpg_pages(search_type, query):
 
     with sqlite3.connect('rpgs.db') as connection:
         cursor = connection.cursor()
-        cursor.execute(f"SELECT * FROM rpgs WHERE {search_type} LIKE ?", (f'%{query.translate(translator)}%',))
+        cursor.execute(f"SELECT * FROM rpgs WHERE {search_type} LIKE ? ORDER BY system, name",
+                        (f'%{query.translate(translator)}%',))
         rows = cursor.fetchall()
     
     if len(rows) == 0:
