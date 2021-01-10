@@ -2,6 +2,7 @@ from flask import Flask, render_template, abort
 import sqlite3, sys, string
 
 app = Flask(__name__)
+order_statement = "ORDER BY system, publisher_id, name"
 
 @app.route("/")
 def root():
@@ -28,7 +29,7 @@ def personal_paths(path):
 def all_rpgs():
     with sqlite3.connect('rpgs.db') as connection:
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM rpgs ORDER BY system, name")
+        cursor.execute(f"SELECT * FROM rpgs {order_statement}")
         rows = cursor.fetchall()
     return render_template('personal/rpg_results.html', data=rows, title="RPGs - All", highlight='personal')
 
@@ -36,7 +37,7 @@ def all_rpgs():
 def rpgs_to_run():
     with sqlite3.connect('rpgs.db') as connection:
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM rpgs WHERE to_gm=1 ORDER BY system, name")
+        cursor.execute(f"SELECT * FROM rpgs WHERE to_gm=1 {order_statement}")
         rows = cursor.fetchall()
     return render_template('personal/rpg_results.html', data=rows, title="RPGs - To Run", highlight='personal')
 
@@ -48,7 +49,7 @@ def rpg_pages(search_type, query):
 
     with sqlite3.connect('rpgs.db') as connection:
         cursor = connection.cursor()
-        cursor.execute(f"SELECT * FROM rpgs WHERE {search_type} LIKE ? ORDER BY system, name",
+        cursor.execute(f"SELECT * FROM rpgs WHERE {search_type} LIKE ? {order_statement}",
                         (f'%{query.translate(translator)}%',))
         rows = cursor.fetchall()
     
