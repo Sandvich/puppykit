@@ -3,23 +3,27 @@
 <h2>Professional</h2>
 <iframe class="contact" src="http://githubbadge.appspot.com/Sandvich" style="height: 142px;width: 200px;" frameBorder="0"></iframe>
 
-<h2>Gaming</h2>
+<h2>Others</h2>
 <a href="http://steamcommunity.com/id/ttio/"><img class="steam" src="https://steamsignature.com/card/0/76561197997063854.png" alt="Steam"/></a>
 <a href="https://psnprofiles.com/TTIOttio"><img class="steam" src="https://card.psnprofiles.com/2/TTIOttio.png" border="0"></a>
 <div class="center"><p><a href="https://longestegg.itch.io">Itch.io page</a></p></div>
 <div class="center"><p><a href="http://drivethrurpg.com/browse/pub/6492/Sanchit-Sharma">DriveThruRPG page</a></p></div>
+<iframe allowfullscreen sandbox="allow-top-navigation allow-scripts" width="400" height="800" src="http://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Fcybre.space%2Fusers%2Fpuppykit&theme=dark&size=100&header=true&replies=false&boosts=false"></iframe>
 
-<h2>Email</h2>
+<h2>Direct</h2>
 <p>
-    The email form isn't going to be working until I get gandi's email setup (since I don't want to put my primary email
-    onto a public website). For now, please use one of the other methods.
+    This is still a work in progress. More options will be added as I work out how best to add them :)
     <!-- TODO: Enable form (python?) -->
 </p>
 <form class="pure-form-stacked">
-    <label for="email_addr">Email Address</label>
+    <label for="contact_method">Contact Method</label>
+    <select id="contact_method">
+        <option value="email">Email</option>
+    </select>
+    <label for="email_addr">Your Email Address</label>
     <input type="email" id="email_addr" required><br>
     <label for="message">Your Message</label>
     <textarea id="message" rows="10" required></textarea><br>
-    <button type="submit" class="pure-button pure-button-primary" disabled>Submit</button>
+    <button type="button" class="pure-button pure-button-primary" disabled>Submit</button>
 </form>
 {% endblock %}
