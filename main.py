@@ -68,9 +68,9 @@ def project_paths(path):
     else:
         abort(404)
 
-@app.route("/writing/<string:path>/")
-def writing_paths(path):
-    # Everything under writing
+@app.route("/fiction/<string:path>/")
+def fiction_paths(path):
+    # Everything under fiction
     valid = {
         'accalia': 'The Accalia',
         'finalstraw': 'The Final Straw',
@@ -80,7 +80,7 @@ def writing_paths(path):
         'birth': 'Birth'    
     }
     if path in valid.keys():
-        return render_template(f"writing/{path}.html", title=f"Writing - {valid[path]}", highlight='writing')
+        return render_template(f"fiction/{path}.html", title=f"Fiction - {valid[path]}", highlight='fiction')
     else:
         abort(404)
 
