@@ -35,6 +35,10 @@ p.caption {
     text-align: center;
 }
 
+a.code {
+    font-family: monospace;
+}
+
 img {
 	display: block;
 	margin: 0em auto 0.5em auto;

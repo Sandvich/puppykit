@@ -6,13 +6,13 @@ order_statement = "ORDER BY system, publisher_id, name"
 
 @app.route("/")
 def root():
-    # Renders the root page. Nothing special.
+    # Renders the root page. Nothing special. Uses the latest blog post for part of the content.
     return render_template('root.html', title="Main", highlight="index")
 
 @app.route("/<string:path>/")
 def main_paths(path):
     # Renders all the pages directly under the root.
-    if path in ['contact', 'personal', 'professional', 'projects', 'writing']:
+    if path in ['contact', 'personal', 'professional', 'projects', 'fiction', 'blogs']:
         return render_template(f"{path}.html", title=path.capitalize(), highlight=path)
     else:
         abort(404)
@@ -81,6 +81,17 @@ def fiction_paths(path):
     }
     if path in valid.keys():
         return render_template(f"fiction/{path}.html", title=f"Fiction - {valid[path]}", highlight='fiction')
+    else:
+        abort(404)
+
+@app.route("/blogs/<string:post>/")
+def blogs(post):
+    valid = {
+        'site': ['site_setup.html', 'Website'],
+        'gbg': ['game_builders_garage.html', 'Game Builders Garage']
+    }
+    if post in valid.keys():
+        return render_template(f"blog/{valid[post][0]}", title=f"Blogs - {valid[post][1]}", highlight='blogs')
     else:
         abort(404)
 
